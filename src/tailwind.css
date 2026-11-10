@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth iframe {
+    pointer-events: none;
+  }
+
+  body {
+    @apply bg-surface-50 font-body text-slate-900 antialiased transition-colors duration-300 dark:bg-surface-950 dark:text-slate-100;
+    background-image: radial-gradient(circle at 0% 0%, rgba(196, 120, 74, 0.08), transparent 32%);
+  }
+
+  .dark body {
+    background-color: #0c0c0b;
+    background-image: radial-gradient(circle at 100% 0%, rgba(196, 120, 74, 0.12), transparent 28%);
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  @keyframes lightbox-pop {
+    0% {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .lightbox-pop {
+    animation: lightbox-pop 220ms ease-out;
+  }
+
+  #root {
+    @apply min-h-screen;
+  }
+
+  a {
+    @apply no-underline;
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brand-400 ring-offset-2 ring-offset-white dark:ring-offset-surface-950;
+  }
+
+  button,
+  a,
+  input,
+  textarea {
+    @apply transition duration-200 ease-smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
